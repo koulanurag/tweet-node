@@ -1,0 +1,14 @@
+{
+  "name": "tweet-node",
+  "version": "0.0.0",
+  "description": "Analyse real time tweets",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm install"
+  },
+  "author": "Anurag Koul",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.9.7"
+  }
+}
