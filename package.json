@@ -9,6 +9,7 @@
   "author": "Anurag Koul",
   "license": "MIT",
   "dependencies": {
-    "express": "~4.9.7"
+    "express": "~4.9.7",
+    "twitter": "^1.2.0"
   }
 }
