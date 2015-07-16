@@ -15,7 +15,7 @@ var http = require('http').Server(app);
 
 //connecting to mongo-db on azure
 //mongoose.connect('mongodb://quantumkoul1.cloudapp.net:27017/tweets',function(err,db){
-mongoose.connect('mongodb://localhost/tweets',function(err,db){
+/*mongoose.connect('mongodb://localhost/tweets',function(err,db){
   if(!err) {
     console.log("We are connected");
   }
@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost/tweets',function(err,db){
       console.log(err);
   }
 });
-
+*/
 
 //create nTwitter instance
 var twit = new twitter(config.twitter_keys)
