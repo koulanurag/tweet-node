@@ -1,0 +1,13 @@
+<div class="feed-area">
+    <div class="feeds livefeed">
+        <div ng-repeat="pt in feed" class="single-user-feed">
+            <div class="tweet-box">
+                {{pt.body}}
+                <div ng-repeat="url in pt.image_urls">
+                    <img src={{url}} alt="tweetImage" class="tweetImages"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="clearfix"></span>
+</div>

@@ -1,7 +1,39 @@
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <title>TweetRaznik</title>
     
-    <body>
-        <h1> App for analysing Tweets</h1>
-    </body>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/layout.css">
     
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome-animation.min.css">
+    
+    <script src="js/lib/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/d3.layout.cloud.js"></script>
+    
+</head>
+<body>
+    
+    <div data-ng-app="ngGetTweets" id="ngGetTweets">
+        <div data-ui-view='default'></div>
+    </div>
+
+    <script src="js/angular/lib/angular.min.js"></script>
+    <script src="js/angular/lib/angular-ui-router.min.js"></script>
+    
+    <script src="js/angular/app.js"></script>
+    <script src="js/angular/router/config.js"></script>  
+    <script src="js/angular/controllers/tweetsCtrl.js"></script>
+    <script src="js/angular/factories/tweetFactory.js"></script>
+<!--   
+    <script src="js/angular/directives/linearChartDirective.js"></script>
+    <script src="js/angular/directives/wordCloudDirective.js"></script>
+-->
+    
+</body>
 </html>
