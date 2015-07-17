@@ -292,7 +292,7 @@ line-height: 32px;
   width: 50%;
   float: left;
   height: 100%;
-  margin-top: 40px;
+  padding-top: 40px;
   overflow-y: auto;
 }
 .tweetImages{  
