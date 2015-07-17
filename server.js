@@ -15,15 +15,16 @@ var http = require('http').Server(app);
 
 //connecting to mongo-db on azure
 //mongoose.connect('mongodb://quantumkoul1.cloudapp.net:27017/tweets',function(err,db){
-/*mongoose.connect('mongodb://localhost/tweets',function(err,db){
+mongoose.connect('mongodb://raznik:khalisi@ds036698.mongolab.com:36698/tweets',function(err,db){
+//mongoose.connect('mongodb://localhost/tweets',function(err,db){
   if(!err) {
-    console.log("We are connected");
+    console.log("We are connected to data base ");
   }
   else{
       console.log(err);
   }
 });
-*/
+
 
 //create nTwitter instance
 var twit = new twitter(config.twitter_keys)
@@ -41,11 +42,12 @@ app.get('/json/getHandles', routes.get_handles );
 var server = http.listen(port, function(){
   console.log('Express server listening on port ' + port);
 });
+
 // Initialize socket.io
 var io = socket.listen(server);
 
-
 // Set a stream listener for keywords
+
 twit.stream('statuses/filter',{ follow: twitterHandles.map(function(t){return t.id}).join()}, function(stream){
     streamHandler(stream,io)
 });

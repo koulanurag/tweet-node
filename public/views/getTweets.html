@@ -1,11 +1,29 @@
+
 <div class="feed-area">
+    <div class="notification-bar">
+      <span data-ng-show="freshFeed.length > 0" >
+          <a href="#" data-ng-click="showNewFeed()">Click here to see tweets</a>
+      </span>
+      <span class="pull-right"> Total : {{totalLiveFeedCount}}</span>
+    </div>
     <div class="feeds livefeed">
         <div ng-repeat="pt in feed" class="single-user-feed">
-            <div class="tweet-box">
-                {{pt.body}}
-                <div ng-repeat="url in pt.image_urls">
-                    <img src={{url}} alt="tweetImage" class="tweetImages"/>
-                </div>
+            <div class="tweet-box tweet">
+                <img src={{pt.avatar}} class="avatar"/>
+                <blockquote>
+                  <cite>
+                    <a href={{"http://www.twitter.com/" + pt.screenname}}>{{pt.author}}</a> 
+                    <span class="screen-name">{{'@'+pt.screenname}}</span> 
+                  </cite>
+                  <span class="content">
+                    {{pt.body}}
+                    <div>
+                        <span ng-repeat="m in pt.media_urls">
+                            <img src={{m[0]}} alt="tweetImage" class="tweetImages" width={{m[1]['small']['w']}} height={{m[1]['small']['h']}}/>
+                        </span>
+                    </div>
+                  </span>
+                </blockquote>
             </div>
         </div>
     </div>

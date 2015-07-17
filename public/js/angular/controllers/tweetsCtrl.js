@@ -2,12 +2,21 @@ ngGetTweets.controller('tweetsCtrl', ['$scope','$rootScope','$timeout', 'tweetFa
     function ($scope, $rootScope,$timeout, tweetFactory) {
     $scope.publicTweets=[];
     $scope.publicTweetsCount=0;
+    $scope.totalLiveFeedCount=0
+    $scope.freshFeed=[];
     $scope.feed=[];
     $scope.hashtags = []//new Set();
     $scope.flag=true;
+    
+    $scope.showNewFeed = function(){
+        var temp = $scope.freshFeed.concat($scope.feed);
+        $scope.freshFeed =[];
+        $scope.feed = temp.slice(0, 50);
+        $('.livefeed').scrollTop(0);
+    }
     $scope.update = function(data){
 /*        console.log(data.hashtags)*/
-        if (data.hashtags.length >0){
+/*        if (data.hashtags.length >0){
             angular.forEach(data.hashtags,function(value){
                 //$scope.hashtags.add(value);
                 //$scope.hashtags.push(value);
@@ -21,10 +30,16 @@ ngGetTweets.controller('tweetsCtrl', ['$scope','$rootScope','$timeout', 'tweetFa
                 }
             });
             //$scope.$apply();
+        }*/
+        if($scope.feed.length <= 20){
+            $scope.feed.unshift(data);
         }
-        $scope.feed.unshift(data);
-        console.log($scope.feed);
-        console.log($scope.feed.length);
+        if( $scope.feed.length > 20 && $scope.freshFeed.length < 40){
+            $scope.freshFeed.unshift(data);
+        }
+        $scope.totalLiveFeedCount += 1;
+//        console.log('freshfeed',$scope.freshFeed.length)
+//        console.log($scope.feed.length);
        $scope.$apply();
     }
     $scope.updateRestFeed = function(data){
